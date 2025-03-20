@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
+/*   By: musisman <musisman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 14:35:22 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 09:26:40 by musisman         ###   ########.fr       */
+/*   Created: 2024/10/08 15:39:30 by musisman          #+#    #+#             */
+/*   Updated: 2024/10/14 16:11:59 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlen(const char *s)
 {
-	t_game *game;
+	size_t	i;
 
-	if (ac != 2)
-		error(ERR_ARG);
-	game = malloc(sizeof(game));
-	if (!game)
-		error(ERR_MEM);
-	fill_game(game);
-	file_control(game, av[1]);
-	
-	return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

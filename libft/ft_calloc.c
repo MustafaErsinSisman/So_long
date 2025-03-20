@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
+/*   By: musisman <musisman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 14:35:22 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 09:26:40 by musisman         ###   ########.fr       */
+/*   Created: 2024/10/19 21:30:55 by musisman          #+#    #+#             */
+/*   Updated: 2024/10/23 10:47:16 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_game *game;
+	void	*dst;
 
-	if (ac != 2)
-		error(ERR_ARG);
-	game = malloc(sizeof(game));
-	if (!game)
-		error(ERR_MEM);
-	fill_game(game);
-	file_control(game, av[1]);
-	
-	return (0);
+	dst = malloc(count * size);
+	if (!dst)
+		return (NULL);
+	ft_bzero(dst, count * size);
+	return (dst);
 }

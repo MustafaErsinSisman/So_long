@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
+/*   By: musisman <musisman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 14:35:22 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 09:26:40 by musisman         ###   ########.fr       */
+/*   Created: 2024/10/19 21:22:57 by musisman          #+#    #+#             */
+/*   Updated: 2024/10/30 19:04:41 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *s1)
 {
-	t_game *game;
+	char	*dst;
+	size_t	i;
 
-	if (ac != 2)
-		error(ERR_ARG);
-	game = malloc(sizeof(game));
-	if (!game)
-		error(ERR_MEM);
-	fill_game(game);
-	file_control(game, av[1]);
-	
-	return (0);
+	i = 0;
+	dst = ft_calloc(ft_strlen(s1) + 1, sizeof(char));
+	if (!dst)
+		return (0);
+	while (s1[i])
+	{
+		dst[i] = s1[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
+/*   By: musisman <musisman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 14:35:22 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 09:26:40 by musisman         ###   ########.fr       */
+/*   Created: 2024/10/09 16:56:44 by musisman          #+#    #+#             */
+/*   Updated: 2024/10/14 17:23:21 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_bzero(void *s, size_t n)
 {
-	t_game *game;
-
-	if (ac != 2)
-		error(ERR_ARG);
-	game = malloc(sizeof(game));
-	if (!game)
-		error(ERR_MEM);
-	fill_game(game);
-	file_control(game, av[1]);
-	
-	return (0);
+	ft_memset(s, 0, n);
 }
