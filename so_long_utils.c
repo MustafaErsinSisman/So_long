@@ -20,5 +20,21 @@ void error (char *err_msg)
 
 void fill_game(t_game *game)
 {
-        game->width = 0;
+//      game->mlx;
+//      game->win;
+//      game->wall;
+//      game->path;
+//      game->exit;
+//      game->collectible;
+//      game->player;
+	game->map = NULL;
+	game->width = 3;
+        game->height = 3;
+        game->exit_count = 0;
+        game->player_count = 0;
+// 	game->player_x;
+// 	game->player_y;
+// 	game->count;
+        game->collectibles = 0;
+// 	game->moves;
 }

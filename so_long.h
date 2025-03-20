@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
+/*   By: musisman <musisman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 14:35:23 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 10:18:15 by musisman         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:15:35 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ typedef struct s_game
 // 	void	*player;
 	char	**map;
 	int		width;
-// 	int		height;
-// 	int		exit_count;
-// 	int		player_count;
+	int		height;
+	int		exit_count;
+	int		player_count;
 // 	int		player_x;
 // 	int		player_y;
 // 	int		count;
-// 	int		collectibles;
+	int		collectibles;
 // 	int		moves;
 }			t_game;
 
