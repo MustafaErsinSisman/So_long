@@ -5,36 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: musisman <<musisman@student.42.fr>>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 08:30:43 by musisman          #+#    #+#             */
-/*   Updated: 2025/03/20 08:30:43 by musisman         ###   ########.fr       */
+/*   Created: 2025/03/21 15:35:32 by musisman          #+#    #+#             */
+/*   Updated: 2025/03/21 15:35:32 by musisman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void error (char *err_msg)
+int	close_game(t_game *game)
 {
-        ft_putstr_fd(err_msg, 2);
-        exit(1);
+	free_game(game);
+	exit(0);
 }
 
-void fill_game(t_game *game)
+void	ft_putnbr(int n)
 {
-//      game->mlx;
-//      game->win;
-//      game->wall;
-//      game->path;
-//      game->exit;
-//      game->collectible;
-//      game->player;
-	game->map = NULL;
-	game->width = 3;
-        game->height = 3;
-        game->exit_count = 0;
-        game->player_count = 0;
-// 	game->player_x;
-// 	game->player_y;
-// 	game->count;
-        game->collectibles = 0;
-// 	game->moves;
+	char	c;
+
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
+}
+
+void	error_message(char *err)
+{
+	ft_putstr_fd(err, 2);
+	exit(1);
+}
+
+void	free_map(char **map, int height)
+{
+	int	i;
+
+	if (!map)
+		return ;
+	i = 0;
+	while (i < height)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+int	ft_strcmp(const char *str1, const char *str2)
+{
+	while (*str2 == '0')
+		str2++;
+	while (*str1 == '0')
+		str1++;
+	while (*str1 && (*str1 == *str2))
+	{
+		str1++;
+		str2++;
+	}
+	return (*str1 - *str2);
 }
