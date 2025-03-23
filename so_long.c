@@ -39,7 +39,7 @@ int	map_height(char *file, t_game *game)
 	char	*line;
 	int		fd;
 	int		i;
-	
+
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
@@ -98,10 +98,11 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		error_message(ERR_ARG);
+	file_extension(argv[1]);
 	game = malloc(sizeof(t_game));
-        if (!game)
-                error_message(ERR_MEM);
-	file_extension(argv[1], game);
+	if (!game)
+		error_message(ERR_MEM);
+	fill_game(game);
 	read_map(game, argv[1]);
 	map_cntrl(game);
 	game->moves = 0;

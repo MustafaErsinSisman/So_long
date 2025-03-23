@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -28,7 +27,6 @@
 # define ERR_MAP_OPEN "Map walls error\n"
 # define ERR_MAP_TRGT "Map target error\n"
 # define FINISH "Thanks for playing\n"
-
 
 typedef struct s_game
 {
@@ -53,14 +51,13 @@ typedef struct s_game
 
 int			read_map(t_game *game, char *file);
 int			key_hook(int key_code, t_game *game);
-int			ft_strcmp(const char *str1, const char *str2);
 int			finish(t_game *game);
 int			close_game(t_game *game);
 void		free_game(t_game *game);
 void		free_textures(t_game *game);
-void		ft_putnbr(int n);
 void		error_message(char *err);
-void		file_extension(char *filename, t_game *game);
+void		file_extension(char *filename);
+void		fill_game(t_game *game);
 void		map_cntrl(t_game *game);
 void		free_game(t_game *game);
 void		free_map(char **map, int height);

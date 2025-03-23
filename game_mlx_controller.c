@@ -92,8 +92,8 @@ void	move_player(t_game *game, int dx, int dy)
 		mlx_put_image_to_window(game->mlx, game->win, game->player,
 			game->player_x * 64, game->player_y * 64);
 		game->moves++;
-		ft_putnbr(game->moves);
-		write(1, "\n", 1);
+		ft_putnbr_fd(game->moves, 1);
+		ft_putchar_fd('\n', 1);
 	}
 }
 

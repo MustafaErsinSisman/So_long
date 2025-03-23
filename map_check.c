@@ -15,7 +15,9 @@
 
 void	free_game(t_game *game)
 {
-	free_textures(game);
+	if (game->exit || game->wall || game->path || game->player
+		|| game->collectible)
+		free_textures(game);
 	if (game->map)
 		free_map(game->map, game->height);
 	if (game->win)
@@ -25,7 +27,8 @@ void	free_game(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	free(game);
+	if (game)
+		free(game);
 }
 
 static char	**copy_map(t_game *game)
@@ -81,7 +84,7 @@ static void	flood_fill(t_game *game, char **map_cpy, int x, int y)
 	if (map_cpy[y][x] == 'C')
 		game->count++;
 	if (map_cpy[y][x] == 'E')
-		game->exit_count = 1;
+		game->exit_count = 0;
 	map_cpy[y][x] = 'F';
 	flood_fill(game, map_cpy, x - 1, y);
 	flood_fill(game, map_cpy, x + 1, y);
@@ -102,7 +105,7 @@ void	flood_fill_controller(t_game *game)
 	player_position(game);
 	game->count = 0;
 	flood_fill(game, map_cpy, game->player_x, game->player_y);
-	if (game->exit_count != 1 || game->count != game->collectibles)
+	if (game->exit_count != 0 || game->count != game->collectibles)
 	{
 		free_map(map_cpy, game->height);
 		free_map(game->map, game->height);

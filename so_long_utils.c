@@ -18,26 +18,6 @@ int	close_game(t_game *game)
 	exit(0);
 }
 
-void	ft_putnbr(int n)
-{
-	char	c;
-
-	if (n == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr(n / 10);
-	c = (n % 10) + '0';
-	write(1, &c, 1);
-}
-
 void	error_message(char *err)
 {
 	ft_putstr_fd(err, 2);
@@ -58,17 +38,14 @@ void	free_map(char **map, int height)
 	}
 	free(map);
 }
-
-int	ft_strcmp(const char *str1, const char *str2)
+void fill_game(t_game *game)
 {
-	while (*str2 == '0')
-		str2++;
-	while (*str1 == '0')
-		str1++;
-	while (*str1 && (*str1 == *str2))
-	{
-		str1++;
-		str2++;
-	}
-	return (*str1 - *str2);
+	game->mlx = NULL;
+	game->win = NULL;
+	game->wall = NULL;
+	game->path = NULL;
+	game->exit = NULL;
+	game->collectible = NULL;
+	game->player = NULL;
+	game->map = NULL;
 }

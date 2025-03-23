@@ -89,13 +89,6 @@ static void	map_wall(t_game *game)
 
 void	map_cntrl(t_game *game)
 {
-	game->mlx = NULL;
-	game->win = NULL;
-	game->wall = NULL;
-	game->path = NULL;
-	game->exit = NULL;
-	game->collectible = NULL;
-	game->player = NULL;
 	is_rectangular(game);
 	game->player_count = 0;
 	game->exit_count = 0;
@@ -104,14 +97,11 @@ void	map_cntrl(t_game *game)
 	map_wall(game);
 }
 
-void	file_extension(char *file_name, t_game *game)
+void	file_extension(char *file_name)
 {
 	char	*str;
 
 	str = ft_strrchr(file_name, '.');
-	if (!str || ft_strcmp(str, ".ber") != 0)
-	{
-		free_game(game);
+	if (!str || ft_strncmp(str, ".ber", 5))
 		error_message(ERR_FILE);
-	}
 }
