@@ -44,7 +44,7 @@ int	map_height(char *file, t_game *game)
 	if (fd < 0)
 	{
 		free_game(game);
-		error_message(ERR_MAP_TRGT);
+		error_message(ERR_MAP_READ);
 	}
 	i = 0;
 	line = get_next_line(fd, 0);
@@ -73,10 +73,10 @@ int	read_map(t_game *game, char *file)
 	game->height = map_height(file, game);
 	map = malloc((game->height) * sizeof(char *) + 1);
 	if (!map)
-		return (game->map = NULL, 0);
+		return (0);
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (free_game(game), error_message(ERR_MAP_TRGT), 0);
+		return (free_game(game), error_message(ERR_MAP_READ), 0);
 	i = 0;
 	line = get_next_line(fd, 0);
 	while (line)
@@ -104,8 +104,7 @@ int	main(int argc, char **argv)
 		error_message(ERR_MEM);
 	fill_game(game);
 	read_map(game, argv[1]);
-	map_cntrl(game);
-	game->moves = 0;
+	map_control(game);
 	flood_fill_controller(game);
 	window(game);
 	mlx_hook(game->win, 17, 0, close_game, game);

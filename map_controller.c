@@ -87,12 +87,9 @@ static void	map_wall(t_game *game)
 	}
 }
 
-void	map_cntrl(t_game *game)
+void	map_control(t_game *game)
 {
 	is_rectangular(game);
-	game->player_count = 0;
-	game->exit_count = 0;
-	game->collectibles = 0;
 	map_contents(game, -1, -1);
 	map_wall(game);
 }

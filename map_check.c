@@ -103,7 +103,6 @@ void	flood_fill_controller(t_game *game)
 		error_message(ERR_MEM);
 	}
 	player_position(game);
-	game->count = 0;
 	flood_fill(game, map_cpy, game->player_x, game->player_y);
 	if (game->exit_count != 0 || game->count != game->collectibles)
 	{

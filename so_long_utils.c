@@ -38,7 +38,8 @@ void	free_map(char **map, int height)
 	}
 	free(map);
 }
-void fill_game(t_game *game)
+
+void	fill_game(t_game *game)
 {
 	game->mlx = NULL;
 	game->win = NULL;
@@ -48,4 +49,9 @@ void fill_game(t_game *game)
 	game->collectible = NULL;
 	game->player = NULL;
 	game->map = NULL;
+	game->moves = 0;
+	game->player_count = 0;
+	game->exit_count = 0;
+	game->collectibles = 0;
+	game->count = 0;
 }

@@ -19,13 +19,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define ERR_ARG "Argument error\n"
-# define ERR_MEM "Memory error\n"
-# define ERR_FILE "File error\n"
-# define ERR_MAP "Map error\n"
-# define ERR_MAP_CONT "Map contents error\n"
-# define ERR_MAP_OPEN "Map walls error\n"
-# define ERR_MAP_TRGT "Map target error\n"
+# define ERR_ARG "Error: Argument error\n"
+# define ERR_MEM "Error: Memory error\n"
+# define ERR_FILE "Error: File error\n"
+# define ERR_MAP "Error: Map error\n"
+# define ERR_MAP_READ "Error: Map didn't read\n"
+# define ERR_MAP_CONT "Error: Map contents error\n"
+# define ERR_MAP_OPEN "Error: Map walls error\n"
+# define ERR_MAP_TRGT "Error: Map target error\n"
 # define FINISH "Thanks for playing\n"
 
 typedef struct s_game
@@ -58,7 +59,7 @@ void		free_textures(t_game *game);
 void		error_message(char *err);
 void		file_extension(char *filename);
 void		fill_game(t_game *game);
-void		map_cntrl(t_game *game);
+void		map_control(t_game *game);
 void		free_game(t_game *game);
 void		free_map(char **map, int height);
 void		flood_fill_controller(t_game *game);

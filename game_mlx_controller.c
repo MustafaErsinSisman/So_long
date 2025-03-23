@@ -99,7 +99,7 @@ void	move_player(t_game *game, int dx, int dy)
 
 int	key_hook(int key_code, t_game *game)
 {
-	if (key_code == 65307 || key_code == 17)
+	if (key_code == 65307)
 	{
 		free_game(game);
 		exit(0);
