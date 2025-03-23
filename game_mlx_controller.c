@@ -59,7 +59,7 @@ void	window(t_game *game)
 	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm", &i, &i);
 	game->path = mlx_xpm_file_to_image(game->mlx, "textures/path.xpm", &i, &i);
 	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm", &i, &i);
-	game->collectible = mlx_xpm_file_to_image(game->mlx, "textures/gold.xpm",
+	game->collectible = mlx_xpm_file_to_image(game->mlx, "textures/fish.xpm",
 			&i, &i);
 	game->player = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm", &i,
 			&i);
